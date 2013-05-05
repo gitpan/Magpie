@@ -13,7 +13,7 @@ my %WriteMakefileArgs = (
   "AUTHOR" => "Kip Hampton <kip.hampton\@tamarou.com>, Chris Prather <chris.prather\@tamarou.com>",
   "BUILD_REQUIRES" => {
     "HTTP::Request::Common" => "6.02",
-    "Test::Requires" => "0.06",
+    "Test::Requires" => 0,
     "Test::Simple" => "0.98"
   },
   "CONFIGURE_REQUIRES" => {

@@ -5,7 +5,7 @@ author:
   - 'Chris Prather <chris.prather@tamarou.com>'
 build_requires:
   HTTP::Request::Common: 6.02
-  Test::Requires: 0.06
+  Test::Requires: 0
   Test::Simple: 0.98
 configure_requires:
   ExtUtils::MakeMaker: 6.30
