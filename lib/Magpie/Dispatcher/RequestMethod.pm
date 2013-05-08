@@ -1,6 +1,6 @@
 package Magpie::Dispatcher::RequestMethod;
 {
-  $Magpie::Dispatcher::RequestMethod::VERSION = '1.131250';
+  $Magpie::Dispatcher::RequestMethod::VERSION = '1.131280';
 }
 #ABSTRACT: INCOMPLETE - Placeholder for future Dispatcher Role
 use Moose::Role;
@@ -28,7 +28,7 @@ Magpie::Dispatcher::RequestMethod - INCOMPLETE - Placeholder for future Dispatch
 
 =head1 VERSION
 
-version 1.131250
+version 1.131280
 
 #SEEALSO: Magpie
 

@@ -29,6 +29,7 @@ my %WriteMakefileArgs = (
     "HTTP::Negotiate" => "6.00",
     "HTTP::Throwable" => "0.016",
     "Moose" => "2.0402",
+    "MooseX::Role::Parameterized" => 0,
     "MooseX::Traits" => "0.11",
     "MooseX::Types::Path::Class" => "0.05",
     "Plack" => "0.9985",
@@ -36,7 +37,7 @@ my %WriteMakefileArgs = (
     "Try::Tiny" => "0.11",
     "URI" => "1.59"
   },
-  "VERSION" => "1.131250",
+  "VERSION" => "1.131280",
   "test" => {
     "TESTS" => "t/*.t t/config/*.t t/core/*.t t/plugins/*.t t/resources/*.t t/transformers/*.t"
   }

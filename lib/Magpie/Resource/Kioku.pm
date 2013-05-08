@@ -1,6 +1,6 @@
 package Magpie::Resource::Kioku;
 {
-  $Magpie::Resource::Kioku::VERSION = '1.131250';
+  $Magpie::Resource::Kioku::VERSION = '1.131280';
 }
 
 # ABSTRACT: INCOMPLETE - Resource implementation for KiokuDB datastores.
@@ -189,7 +189,9 @@ sub POST {
             }
 
             try {
-                $self->data_source->store($existing);
+                $self->data_source->txn_do( sub {
+                    $self->data_source->store($existing);
+                });
             }
             catch {
                 my $error = "Error updating data entity with ID $existing_id: $_\n";
@@ -222,7 +224,9 @@ sub POST {
     my $id = undef;
 
     try {
-        $id = $self->data_source->store($to_store);
+        $self->data_source->txn_do( sub {
+            $id = $self->data_source->store($to_store);
+        });
     }
     catch {
         my $error = "Could not store POST data in Kioku data source: $_\n";
@@ -260,7 +264,9 @@ sub DELETE {
 
     # should we do a separate lookup to make sure the data is there?
     try {
-        $self->data_source->delete( $id );
+        $self->data_source->txn_do( sub {
+            $self->data_source->delete( $id );
+        });
     }
     catch {
         my $error = "Could not delete data from Kioku data source: $_\n";
@@ -339,7 +345,6 @@ sub PUT {
         $self->set_error( { status_code => 500, reason => $error } );
     };
 
-    warn "should be stored";
     return OK if $self->has_error;
 
     # finally, if it all went OK, say so.
@@ -351,7 +356,7 @@ sub PUT {
 
 package MagpieGenericWrapper;
 {
-  $MagpieGenericWrapper::VERSION = '1.131250';
+  $MagpieGenericWrapper::VERSION = '1.131280';
 }
 
 sub new {
@@ -372,7 +377,7 @@ Magpie::Resource::Kioku - INCOMPLETE - Resource implementation for KiokuDB datas
 
 =head1 VERSION
 
-version 1.131250
+version 1.131280
 
 # SEEALSO: Magpie, Magpie::Resource
 

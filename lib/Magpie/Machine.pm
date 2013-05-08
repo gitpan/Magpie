@@ -1,6 +1,6 @@
 package Magpie::Machine;
 {
-  $Magpie::Machine::VERSION = '1.131250';
+  $Magpie::Machine::VERSION = '1.131280';
 }
 use Moose;
 extends 'Magpie::Component';
@@ -44,7 +44,7 @@ Magpie::Machine - Event Class For Creating Magpie Pipelines
 
 =head1 VERSION
 
-version 1.131250
+version 1.131280
 
 =head1 AUTHORS
 
