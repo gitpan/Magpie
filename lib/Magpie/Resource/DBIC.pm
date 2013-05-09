@@ -1,6 +1,6 @@
 package Magpie::Resource::DBIC;
 {
-  $Magpie::Resource::DBIC::VERSION = '1.131280';
+  $Magpie::Resource::DBIC::VERSION = '1.131290';
 }
 
 # ABSTRACT: Resource implementation for DBIx::Class ResultSources.
@@ -278,7 +278,7 @@ sub DELETE {
 
 package MagpieGenericWrapper;
 {
-  $MagpieGenericWrapper::VERSION = '1.131280';
+  $MagpieGenericWrapper::VERSION = '1.131290';
 }
 
 sub new {
@@ -299,7 +299,7 @@ Magpie::Resource::DBIC - Resource implementation for DBIx::Class ResultSources.
 
 =head1 VERSION
 
-version 1.131280
+version 1.131290
 
 # SEEALSO: Magpie, Magpie::Resource
 

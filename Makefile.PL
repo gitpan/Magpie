@@ -26,6 +26,7 @@ my %WriteMakefileArgs = (
   "PREREQ_PM" => {
     "Bread::Board" => "0.25",
     "Carp" => "1.24",
+    "Data::Printer" => 0,
     "HTTP::Negotiate" => "6.00",
     "HTTP::Throwable" => "0.016",
     "Moose" => "2.0402",
@@ -37,7 +38,7 @@ my %WriteMakefileArgs = (
     "Try::Tiny" => "0.11",
     "URI" => "1.59"
   },
-  "VERSION" => "1.131280",
+  "VERSION" => "1.131290",
   "test" => {
     "TESTS" => "t/*.t t/config/*.t t/core/*.t t/plugins/*.t t/resources/*.t t/transformers/*.t"
   }

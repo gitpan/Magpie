@@ -161,14 +161,4 @@ t/transformers/xslt_upstream.t
 t/transformers/xslt_xinclude.t
 t/transformers/xsp_basic.t
 t/transformers/xsp_taglibs.t
-temp/alternate/bar/hello.xml
-temp/alternate/foo/hello.xml
-temp/bbtest.pl
-temp/kiokutest.db
-temp/lib/Loader.pm
-temp/lib/Loader.pm.bak
-temp/lib/Loader.pm.crazy
-temp/loader.t
-temp/mount.t
-temp/moviename.psgi
 weaver.ini

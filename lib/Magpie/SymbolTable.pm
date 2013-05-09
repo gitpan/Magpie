@@ -1,6 +1,6 @@
 package Magpie::SymbolTable;
 {
-  $Magpie::SymbolTable::VERSION = '1.131280';
+  $Magpie::SymbolTable::VERSION = '1.131290';
 }
 #ABSTRACT: Core Magpie Event Symbol Table Object
 use strict;
@@ -74,7 +74,7 @@ Magpie::SymbolTable - Core Magpie Event Symbol Table Object
 
 =head1 VERSION
 
-version 1.131280
+version 1.131290
 
 =head1 AUTHORS
 

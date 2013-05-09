@@ -1,6 +1,6 @@
 package Magpie::Resource::Kioku;
 {
-  $Magpie::Resource::Kioku::VERSION = '1.131280';
+  $Magpie::Resource::Kioku::VERSION = '1.131290';
 }
 
 # ABSTRACT: INCOMPLETE - Resource implementation for KiokuDB datastores.
@@ -356,7 +356,7 @@ sub PUT {
 
 package MagpieGenericWrapper;
 {
-  $MagpieGenericWrapper::VERSION = '1.131280';
+  $MagpieGenericWrapper::VERSION = '1.131290';
 }
 
 sub new {
@@ -377,7 +377,7 @@ Magpie::Resource::Kioku - INCOMPLETE - Resource implementation for KiokuDB datas
 
 =head1 VERSION
 
-version 1.131280
+version 1.131290
 
 # SEEALSO: Magpie, Magpie::Resource
 

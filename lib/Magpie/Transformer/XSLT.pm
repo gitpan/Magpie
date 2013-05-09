@@ -1,6 +1,6 @@
 package Magpie::Transformer::XSLT;
 {
-  $Magpie::Transformer::XSLT::VERSION = '1.131280';
+  $Magpie::Transformer::XSLT::VERSION = '1.131290';
 }
 # ABSTRACT: XSLT Pipeline Transformer
 
@@ -284,7 +284,7 @@ Magpie::Transformer::XSLT - XSLT Pipeline Transformer
 
 =head1 VERSION
 
-version 1.131280
+version 1.131290
 
 =head1 AUTHORS
 

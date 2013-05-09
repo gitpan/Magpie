@@ -1,6 +1,6 @@
 package Plack::Middleware::Magpie;
 {
-  $Plack::Middleware::Magpie::VERSION = '1.131280';
+  $Plack::Middleware::Magpie::VERSION = '1.131290';
 }
 
 # ABSTRACT: Plack Middleware Interface For Pipelined Magpie Applications
@@ -184,9 +184,8 @@ sub call {
     $pipeline = $matcher->construct_pipeline($pipeline);
 
     if ($self->debug) {
-        Plack::Util::load_class('Data::Dumper::Concise');
-        my $message = 'PIPELINE: ' . Data::Dumper::Concise::Dumper($pipeline);
-        #warn 'STACK ' . Data::Dumper::Concise::Dumper(\@STACK);
+        Plack::Util::load_class('Data::Printer');
+        my $message = 'PIPELINE: ' . Data::Printer::p($pipeline);
         warn $message . "\n";
         $req->logger({ level => 'debug', message => $message, });
     }
@@ -273,7 +272,7 @@ Plack::Middleware::Magpie - Plack Middleware Interface For Pipelined Magpie Appl
 
 =head1 VERSION
 
-version 1.131280
+version 1.131290
 
 =head1 AUTHORS
 

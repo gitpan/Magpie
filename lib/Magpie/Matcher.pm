@@ -1,6 +1,6 @@
 package Magpie::Matcher;
 {
-  $Magpie::Matcher::VERSION = '1.131280';
+  $Magpie::Matcher::VERSION = '1.131290';
 }
 #ABSTRACT: Multi-purpose Dispatcher Magic
 
@@ -128,7 +128,7 @@ Magpie::Matcher - Multi-purpose Dispatcher Magic
 
 =head1 VERSION
 
-version 1.131280
+version 1.131290
 
 =head1 AUTHORS
 
