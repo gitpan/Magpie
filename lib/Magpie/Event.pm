@@ -1,6 +1,6 @@
 package Magpie::Event;
 {
-  $Magpie::Event::VERSION = '1.131290';
+  $Magpie::Event::VERSION = '1.131380';
 }
 # ABSTRACT: Core Event Role Shared By All Magpie Classes
 use Moose::Role;
@@ -601,7 +601,7 @@ Magpie::Event - Core Event Role Shared By All Magpie Classes
 
 =head1 VERSION
 
-version 1.131290
+version 1.131380
 
 =head1 AUTHORS
 

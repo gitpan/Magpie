@@ -39,4 +39,4 @@ requires:
   URI: 1.59
 resources:
   repository: git://github.com/tamarou/magpie.git
-version: 1.131290
+version: 1.131380

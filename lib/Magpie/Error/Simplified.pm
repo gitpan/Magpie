@@ -1,6 +1,6 @@
 package Magpie::Error::Simplified;
 {
-  $Magpie::Error::Simplified::VERSION = '1.131290';
+  $Magpie::Error::Simplified::VERSION = '1.131380';
 }
 use Moose::Role;
 
@@ -27,7 +27,7 @@ Magpie::Error::Simplified
 
 =head1 VERSION
 
-version 1.131290
+version 1.131380
 
 =head1 AUTHORS
 
