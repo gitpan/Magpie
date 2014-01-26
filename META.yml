@@ -26,6 +26,7 @@ recommends:
 requires:
   Bread::Board: 0.25
   Carp: 1.24
+  Class::Load: 0.20
   Data::Printer: 0
   HTTP::Negotiate: 6.00
   HTTP::Throwable: 0.016
@@ -39,4 +40,4 @@ requires:
   URI: 1.59
 resources:
   repository: git://github.com/tamarou/magpie.git
-version: 1.131380
+version: 1.140260

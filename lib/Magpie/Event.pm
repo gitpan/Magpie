@@ -1,6 +1,6 @@
 package Magpie::Event;
 {
-  $Magpie::Event::VERSION = '1.131380';
+  $Magpie::Event::VERSION = '1.140260';
 }
 # ABSTRACT: Core Event Role Shared By All Magpie Classes
 use Moose::Role;
@@ -10,6 +10,7 @@ with qw( Magpie::Event::Symbol Magpie::Types );
 use Magpie::Constants;
 use Magpie::SymbolTable;
 use Magpie::Util;
+use Class::Load;
 use Plack::Request;
 use Plack::Response;
 use Try::Tiny;
@@ -198,7 +199,7 @@ sub load_handler {
         my $handler_error = undef;
 
         try {
-            Class::MOP::load_class( $handler );
+            Class::Load::load_class( $handler );
         }
         catch {
             $handler_error = "Fatal error loading handler class '$handler': $_ \n";
@@ -212,7 +213,7 @@ sub load_handler {
         }
 
 		if ( $handler->isa('Plack::Middleware') ) {
-            Class::MOP::load_class( 'Magpie::Transformer::Middleware' );
+            Class::Load::load_class( 'Magpie::Transformer::Middleware' );
 			my $munged_args = {
 				middleware_args => $handler_args,
 				middleware_class => $handler,
@@ -601,7 +602,7 @@ Magpie::Event - Core Event Role Shared By All Magpie Classes
 
 =head1 VERSION
 
-version 1.131380
+version 1.140260
 
 =head1 AUTHORS
 

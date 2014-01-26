@@ -1,6 +1,6 @@
 package Magpie::Breadboard;
 {
-  $Magpie::Breadboard::VERSION = '1.131380';
+  $Magpie::Breadboard::VERSION = '1.140260';
 }
 use Moose;
 
@@ -97,7 +97,7 @@ Magpie::Breadboard - Bread::Board Container For Pipeline Assets
 
 =head1 VERSION
 
-version 1.131380
+version 1.140260
 
 =head1 AUTHORS
 

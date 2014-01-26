@@ -1,6 +1,6 @@
 package Magpie::Transformer::TT2;
 {
-  $Magpie::Transformer::TT2::VERSION = '1.131380';
+  $Magpie::Transformer::TT2::VERSION = '1.140260';
 }
 # ABSTRACT: Template Toolkit Transformer Component
 
@@ -63,6 +63,7 @@ sub get_transformer {
     return OK;
 }
 
+use Encode;
 sub transform {
     my ($self, $ctxt) = @_;
     my $tt = $self->transformer;
@@ -84,7 +85,7 @@ sub transform {
 
     return OK if $self->has_error;
 
-    $self->resource->data( $output );
+    $self->resource->data( encode('UTF-8', $output) );
 
     return OK;
 }
@@ -101,7 +102,7 @@ Magpie::Transformer::TT2 - Template Toolkit Transformer Component
 
 =head1 VERSION
 
-version 1.131380
+version 1.140260
 
 =head1 AUTHORS
 

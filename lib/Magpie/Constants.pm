@@ -1,6 +1,6 @@
 package Magpie::Constants;
 {
-  $Magpie::Constants::VERSION = '1.131380';
+  $Magpie::Constants::VERSION = '1.140260';
 }
 
 # ABSTRACT: Common Handler Control Constants;
@@ -49,7 +49,7 @@ Magpie::Constants - Common Handler Control Constants;
 
 =head1 VERSION
 
-version 1.131380
+version 1.140260
 
 =head1 AUTHORS
 

@@ -1,6 +1,6 @@
 package Magpie::Resource::Kioku;
 {
-  $Magpie::Resource::Kioku::VERSION = '1.131380';
+  $Magpie::Resource::Kioku::VERSION = '1.140260';
 }
 
 # ABSTRACT: INCOMPLETE - Resource implementation for KiokuDB datastores.
@@ -10,6 +10,7 @@ extends 'Magpie::Resource';
 use Magpie::Constants;
 use Try::Tiny;
 use KiokuDB;
+use Class::Load;
 
 has data_source => (
     is         => 'ro',
@@ -209,7 +210,7 @@ sub POST {
 
     # if we make it here there is no existing record, so make a new one.
     try {
-        Class::MOP::load_class($wrapper_class);
+        Class::Load::load_class($wrapper_class);
         $to_store = $wrapper_class->new(%args);
     }
     catch {
@@ -330,9 +331,18 @@ sub PUT {
     }
 
     foreach my $key (keys(%args)) {
-        $existing->$key( $args{$key} );
+        try {
+            $existing->$key( $args{$key} );
+        }
+        catch {
+            my $error = "Error updating property '$key' of Resource ID $existing_id: $_\n";
+            $self->set_error( { status_code => 500, reason => $error } );
+            last;
+        };
     }
 
+
+    return OK if $self->has_error;
 
     try {
         $self->data_source->txn_do(sub {
@@ -356,7 +366,7 @@ sub PUT {
 
 package MagpieGenericWrapper;
 {
-  $MagpieGenericWrapper::VERSION = '1.131380';
+  $MagpieGenericWrapper::VERSION = '1.140260';
 }
 
 sub new {
@@ -377,7 +387,7 @@ Magpie::Resource::Kioku - INCOMPLETE - Resource implementation for KiokuDB datas
 
 =head1 VERSION
 
-version 1.131380
+version 1.140260
 
 # SEEALSO: Magpie, Magpie::Resource
 

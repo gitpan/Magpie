@@ -1,12 +1,13 @@
 package Magpie::Types;
 {
-  $Magpie::Types::VERSION = '1.131380';
+  $Magpie::Types::VERSION = '1.140260';
 }
 # ABSTRACT: Common Magpie Type Constraints
 use Moose::Role;
 #use HTTP::Throwable::Factory;
 use Magpie::Error;
 use Moose::Util::TypeConstraints;
+use Class::Load;
 
 my %http_lookup = (
     300 => 'MultipleChoices',
@@ -65,13 +66,13 @@ coerce 'MagpieResourceObject'
         => via {
             my $args = $_;
             my $class = delete $args->{class};
-            Class::MOP::load_class( $class );
+            Class::Load::load_class( $class );
             $class->new( $args );
         },
     => from 'Str'
         => via {
             my $class = shift;
-            Class::MOP::load_class( $class );
+            Class::Load::load_class( $class );
             $class->new;
         },
 ;
@@ -89,7 +90,7 @@ Magpie::Types - Common Magpie Type Constraints
 
 =head1 VERSION
 
-version 1.131380
+version 1.140260
 
 =head1 AUTHORS
 

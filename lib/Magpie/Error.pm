@@ -1,6 +1,6 @@
 package Magpie::Error;
 {
-  $Magpie::Error::VERSION = '1.131380';
+  $Magpie::Error::VERSION = '1.140260';
 }
 use Moose;
 extends 'HTTP::Throwable::Factory';
@@ -29,7 +29,7 @@ Magpie::Error
 
 =head1 VERSION
 
-version 1.131380
+version 1.140260
 
 =head1 AUTHORS
 

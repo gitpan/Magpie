@@ -1,6 +1,6 @@
 package Magpie::Resource::DBIC;
 {
-  $Magpie::Resource::DBIC::VERSION = '1.131380';
+  $Magpie::Resource::DBIC::VERSION = '1.140260';
 }
 
 # ABSTRACT: Resource implementation for DBIx::Class ResultSources.
@@ -8,6 +8,7 @@ package Magpie::Resource::DBIC;
 use Moose;
 extends 'Magpie::Resource';
 with 'Magpie::Plugin::DBI';
+use Class::Load;
 use Magpie::Constants;
 use Try::Tiny;
 
@@ -208,7 +209,7 @@ sub POST {
 
     # if we make it here there is no existing record, so make a new one.
     try {
-        Class::MOP::load_class($wrapper_class);
+        Class::Load::load_class($wrapper_class);
         $to_store = $wrapper_class->new(%args);
     }
     catch {
@@ -278,7 +279,7 @@ sub DELETE {
 
 package MagpieGenericWrapper;
 {
-  $MagpieGenericWrapper::VERSION = '1.131380';
+  $MagpieGenericWrapper::VERSION = '1.140260';
 }
 
 sub new {
@@ -299,7 +300,7 @@ Magpie::Resource::DBIC - Resource implementation for DBIx::Class ResultSources.
 
 =head1 VERSION
 
-version 1.131380
+version 1.140260
 
 # SEEALSO: Magpie, Magpie::Resource
 

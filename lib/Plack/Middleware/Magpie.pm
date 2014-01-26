@@ -1,6 +1,6 @@
 package Plack::Middleware::Magpie;
 {
-  $Plack::Middleware::Magpie::VERSION = '1.131380';
+  $Plack::Middleware::Magpie::VERSION = '1.140260';
 }
 
 # ABSTRACT: Plack Middleware Interface For Pipelined Magpie Applications
@@ -243,12 +243,16 @@ sub call {
         return $subref->();
     }
 
+    use Encode;
     # XXX: Real Accept-* based serialization will go here eventually.
     #if ($m->resource->has_data) {
     if ( my $data = $m->resource->data ) {
 
         #my $data = $m->resource->data;
         #warn "got data $data\n";
+        #if (!utf8::is_utf8($data)) {
+        #    $data = decode('UTF-8', $data);
+        #}
         my $content_length = length $data || 0;
         if ($content_length) {
             $m->response->content_length($content_length);
@@ -272,7 +276,7 @@ Plack::Middleware::Magpie - Plack Middleware Interface For Pipelined Magpie Appl
 
 =head1 VERSION
 
-version 1.131380
+version 1.140260
 
 =head1 AUTHORS
 

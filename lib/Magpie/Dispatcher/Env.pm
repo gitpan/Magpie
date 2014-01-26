@@ -1,6 +1,6 @@
 package Magpie::Dispatcher::Env;
 {
-  $Magpie::Dispatcher::Env::VERSION = '1.131380';
+  $Magpie::Dispatcher::Env::VERSION = '1.140260';
 }
 #ABSTRACT: INCOMPLETE - Placeholder for future Dispatcher Role
 
@@ -40,7 +40,7 @@ Magpie::Dispatcher::Env - INCOMPLETE - Placeholder for future Dispatcher Role
 
 =head1 VERSION
 
-version 1.131380
+version 1.140260
 
 #SEEALSO: Magpie
 
