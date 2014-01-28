@@ -1,6 +1,6 @@
 package Plack::Middleware::Magpie;
 {
-  $Plack::Middleware::Magpie::VERSION = '1.140260';
+  $Plack::Middleware::Magpie::VERSION = '1.140280';
 }
 
 # ABSTRACT: Plack Middleware Interface For Pipelined Magpie Applications
@@ -276,7 +276,7 @@ Plack::Middleware::Magpie - Plack Middleware Interface For Pipelined Magpie Appl
 
 =head1 VERSION
 
-version 1.140260
+version 1.140280
 
 =head1 AUTHORS
 

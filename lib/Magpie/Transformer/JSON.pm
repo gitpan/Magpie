@@ -1,6 +1,6 @@
 package Magpie::Transformer::JSON;
 {
-  $Magpie::Transformer::JSON::VERSION = '1.140260';
+  $Magpie::Transformer::JSON::VERSION = '1.140280';
 }
 use Moose;
 
@@ -57,7 +57,7 @@ Magpie::Transformer::JSON - JSON Ouput Transformer
 
 =head1 VERSION
 
-version 1.140260
+version 1.140280
 
 =head1 AUTHORS
 

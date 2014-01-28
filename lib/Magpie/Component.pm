@@ -1,6 +1,6 @@
 package Magpie::Component;
 {
-  $Magpie::Component::VERSION = '1.140260';
+  $Magpie::Component::VERSION = '1.140280';
 }
 
 # ABSTRACT: Base Class For All Magpie Pipeline Components
@@ -16,6 +16,7 @@ has breadboard => (
     is      => 'rw',
     isa     => 'Magpie::Breadboard',
     default => sub { Magpie::Breadboard->new(); },
+    lazy    => 1,
     handles => [
         qw( add_asset assets resolve_asset internal_assets resolve_internal_asset)
     ],
@@ -71,7 +72,7 @@ Magpie::Component - Base Class For All Magpie Pipeline Components
 
 =head1 VERSION
 
-version 1.140260
+version 1.140280
 
 =head1 AUTHORS
 

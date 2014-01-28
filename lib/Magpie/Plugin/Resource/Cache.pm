@@ -1,6 +1,6 @@
 package Magpie::Plugin::Resource::Cache;
 {
-  $Magpie::Plugin::Resource::Cache::VERSION = '1.140260';
+  $Magpie::Plugin::Resource::Cache::VERSION = '1.140280';
 }
 use Moose::Role;
 
@@ -64,7 +64,7 @@ Magpie::Plugin::Resource::Cache - A Role to add Caching to a Resource;
 
 =head1 VERSION
 
-version 1.140260
+version 1.140280
 
 =head1 AUTHORS
 

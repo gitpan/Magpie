@@ -1,6 +1,6 @@
 package Magpie::Transformer::ServiceUnavailable;
 {
-  $Magpie::Transformer::ServiceUnavailable::VERSION = '1.140260';
+  $Magpie::Transformer::ServiceUnavailable::VERSION = '1.140280';
 }
 use Moose;
 
@@ -50,7 +50,7 @@ Magpie::Transformer::ServiceUnavailable - Use Plack Middleware Handlers As Pipel
 
 =head1 VERSION
 
-version 1.140260
+version 1.140280
 
 =head1 AUTHORS
 

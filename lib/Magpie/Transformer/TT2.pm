@@ -1,6 +1,6 @@
 package Magpie::Transformer::TT2;
 {
-  $Magpie::Transformer::TT2::VERSION = '1.140260';
+  $Magpie::Transformer::TT2::VERSION = '1.140280';
 }
 # ABSTRACT: Template Toolkit Transformer Component
 
@@ -102,7 +102,7 @@ Magpie::Transformer::TT2 - Template Toolkit Transformer Component
 
 =head1 VERSION
 
-version 1.140260
+version 1.140280
 
 =head1 AUTHORS
 
