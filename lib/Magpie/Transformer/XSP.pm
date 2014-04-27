@@ -1,9 +1,6 @@
 package Magpie::Transformer::XSP;
-{
-  $Magpie::Transformer::XSP::VERSION = '1.140280';
-}
 # ABSTRACT: eXtensible Server Pages Transformer
-
+$Magpie::Transformer::XSP::VERSION = '1.141170';
 use Moose;
 extends 'Magpie::Transformer';
 use Magpie::Constants;
@@ -134,7 +131,7 @@ Magpie::Transformer::XSP - eXtensible Server Pages Transformer
 
 =head1 VERSION
 
-version 1.140280
+version 1.141170
 
 =head1 AUTHORS
 

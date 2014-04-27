@@ -1,9 +1,6 @@
 package Magpie::Dispatcher::Env;
-{
-  $Magpie::Dispatcher::Env::VERSION = '1.140280';
-}
 #ABSTRACT: INCOMPLETE - Placeholder for future Dispatcher Role
-
+$Magpie::Dispatcher::Env::VERSION = '1.141170';
 use Moose::Role;
 
 requires 'map_events';
@@ -40,7 +37,7 @@ Magpie::Dispatcher::Env - INCOMPLETE - Placeholder for future Dispatcher Role
 
 =head1 VERSION
 
-version 1.140280
+version 1.141170
 
 #SEEALSO: Magpie
 

@@ -1,7 +1,5 @@
 package Magpie::Transformer::JSON;
-{
-  $Magpie::Transformer::JSON::VERSION = '1.140280';
-}
+$Magpie::Transformer::JSON::VERSION = '1.141170';
 use Moose;
 
 # ABSTRACT: JSON Ouput Transformer
@@ -9,7 +7,7 @@ use Moose;
 extends 'Magpie::Transformer';
 use Scalar::Util qw(blessed);
 use Magpie::Constants;
-use JSON::Any;
+use JSON;
 
 __PACKAGE__->register_events(qw(transform));
 
@@ -19,24 +17,29 @@ sub transform {
     my $self = shift;
 
     return DECLINED if $self->resource->isa('Magpie::Resource::Abstract');
-
     if ( $self->resource->has_data ) {
+
         my $data        = $self->resource->data;
         my $json_string = undef;
-        if ( blessed $data && $data->does('Data::Stream::Bulk') ) {
-            my @objects = ();
-            while ( my $block = $data->next ) {
-                foreach my $object (@$block) {
-                    my $data
-                        = $object->can('pack') ? $object->pack : {%$object};
-                    push @objects, JSON::Any->encode($data);
+        if ( blessed $data) {
+            if ($data->does('Data::Stream::Bulk') ) {
+                my @objects = ();
+                while ( my $block = $data->next ) {
+                    foreach my $object (@$block) {
+                        my $data
+                            = $object->can('pack') ? $object->pack : {%$object};
+                        push @objects, JSON::encode_json($data);
+                    }
                 }
+                $json_string = '[' . ( join ', ', @objects ) . ']';
             }
-            $json_string = '[' . ( join ', ', @objects ) . ']';
+            else {
+                $json_string = JSON->new->utf8->allow_blessed->convert_blessed->encode($data);
+            }
         }
         else {
             $json_string
-                = JSON::Any->new( allow_blessed => 1 )->encode($data);
+                = JSON::encode_json($data);
         }
         $self->response->content_type('application/json');
         $self->response->content_length( length($json_string) );
@@ -57,7 +60,7 @@ Magpie::Transformer::JSON - JSON Ouput Transformer
 
 =head1 VERSION
 
-version 1.140280
+version 1.141170
 
 =head1 AUTHORS
 

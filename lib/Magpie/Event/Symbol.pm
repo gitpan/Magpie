@@ -1,8 +1,5 @@
 package Magpie::Event::Symbol;
-{
-  $Magpie::Event::Symbol::VERSION = '1.140280';
-}
-
+$Magpie::Event::Symbol::VERSION = '1.141170';
 # ABSTRACT: Role implementing the common symbol table interface.
 use Moose::Role;
 
@@ -104,7 +101,7 @@ Magpie::Event::Symbol - Role implementing the common symbol table interface.
 
 =head1 VERSION
 
-version 1.140280
+version 1.141170
 
 =head1 AUTHORS
 

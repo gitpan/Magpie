@@ -1,9 +1,6 @@
 package Magpie::Transformer;
-{
-  $Magpie::Transformer::VERSION = '1.140280';
-}
 # ABSTRACT: Magpie Pipeline Transformer Base Class
-
+$Magpie::Transformer::VERSION = '1.141170';
 use Moose;
 extends 'Magpie::Component';
 use Magpie::Constants;
@@ -34,7 +31,7 @@ Magpie::Transformer - Magpie Pipeline Transformer Base Class
 
 =head1 VERSION
 
-version 1.140280
+version 1.141170
 
 =head1 AUTHORS
 

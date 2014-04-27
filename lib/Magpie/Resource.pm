@@ -1,8 +1,5 @@
 package Magpie::Resource;
-{
-  $Magpie::Resource::VERSION = '1.140280';
-}
-
+$Magpie::Resource::VERSION = '1.141170';
 # ABSTRACT: Abstract base class for all resource types;
 
 use Moose;
@@ -137,7 +134,7 @@ Magpie::Resource - Abstract base class for all resource types;
 
 =head1 VERSION
 
-version 1.140280
+version 1.141170
 
 =head1 DESCRIPTION
 

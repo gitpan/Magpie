@@ -1,8 +1,5 @@
 package Magpie::Resource::Abstract;
-{
-  $Magpie::Resource::Abstract::VERSION = '1.140280';
-}
-
+$Magpie::Resource::Abstract::VERSION = '1.141170';
 # ABSTRACT: INCOMPLETE - Default Resource class.
 
 use Moose;
@@ -47,7 +44,7 @@ Magpie::Resource::Abstract - INCOMPLETE - Default Resource class.
 
 =head1 VERSION
 
-version 1.140280
+version 1.141170
 
 # SEALSO: Magpie, Magpie::Resource
 

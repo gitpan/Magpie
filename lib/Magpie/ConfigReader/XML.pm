@@ -1,9 +1,6 @@
 package Magpie::ConfigReader::XML;
-{
-  $Magpie::ConfigReader::XML::VERSION = '1.140280';
-}
 #ABSTRACT: Magpie Configuration via XML
-
+$Magpie::ConfigReader::XML::VERSION = '1.141170';
 use Moose;
 use XML::LibXML;
 use Magpie::Util;
@@ -14,6 +11,10 @@ use Class::Load;
 
 sub make_token {
     return '__MTOKEN__XMLCONF';
+}
+
+sub make_match_token {
+    return '__MATCH__' . int( rand(100000) );
 }
 
 has match_stack => (
@@ -47,7 +48,6 @@ has accept_matrix => (
 );
 
 sub process {
-    #warn "process config";
     my $self = shift;
     my $xml_file = shift;
 
@@ -73,34 +73,47 @@ sub process {
                 push @{$input}, process_add( $pipe_child );
             }
             elsif ( $pipe_child_name eq 'match' ) {
-                ($match_type, $to_match, $input) = process_match( $pipe_child );
+                #push @{$input}, $self->process_match( $pipe_child );
+                $self->process_match( $pipe_child );
+                next;
             }
             else {
                 warn "Unknown child element '$pipe_child_name' in config.\n";
             }
-            $self->push_stack( [$match_type, $to_match, $input, make_token] );
+            $self->push_stack( [$match_type, $to_match, $input, make_token, make_match_token] );
         }
+
     }
+
 }
 
 sub process_match {
+    my $self = shift;
     my $node = shift;
-    my $input = [];
+    my @input = ();
     my $match_type = $node->findvalue('@type|./type/text()');
     $match_type = uc $match_type;
     my $to_match = $node->findvalue('@rule|./rule/text()');
+
+    foreach my $child ($node->childNodes) {
+        my $name = $child->localname;
+        next unless length $name;
+        if ($name eq 'add') {
+            push @input, process_add($child);
+        }
+        elsif ($name eq 'match') {
+            push @input, $self->process_match($child);
+        }
+        elsif ($name eq 'reset') {
+            push @input, '__RESET__';
+        }
+    }
+
     if ( $match_type eq 'REGEXP' ) {
         $to_match = qr|$to_match|;
-        foreach my $add ($node->findnodes('./add')) {
-            push @{$input}, process_add( $add );
-        }
     }
     elsif ($match_type eq 'LITERAL') {
         $match_type = 'STRING';
-
-        foreach my $add ($node->findnodes('./add')) {
-            push @{$input}, process_add( $add );
-        }
     }
     elsif ($match_type eq 'ENV') {
         $match_type = 'HASH';
@@ -115,53 +128,53 @@ sub process_match {
             next unless $key && $val;
             $to_match->{$key} = $val;
         }
-
-        foreach my $add ($node->findnodes('./add')) {
-            push @{$input}, process_add( $add );
-        }
-
     }
     elsif ($match_type eq 'ACCEPT') {
         $to_match = $node->findvalue('@variant_name|./variant_name/text()');
-
-        foreach my $add ($node->findnodes('./add')) {
-            push @{$input}, process_add( $add );
-        }
     }
     # NOTE: See comment in Plack::Middleware::Magpie re: this munging.
     elsif ($match_type eq 'TEMPLATE') {
         $match_type = 'REGEXP';
         my $uri_template = $to_match;
-        
+
         # to_match becomes the compiled regexp here
         my ($match_re, $names) = Magpie::Plugin::URITemplate::process_template($to_match);
         $to_match = $match_re;
-        my @old_input = ();
-        foreach my $add ($node->findnodes('./add')) {
-            push @old_input, process_add( $add );
-        }
+        my @parameterized = ();
+        for (my $i = 0; $i < scalar @input; $i++ ) {
+            next if ref( $input[$i] ) eq 'HASH';
+            if ($input[$i] =~/__MATCH__/) {
+                push @parameterized, $input[$i];
+                next;
+            }
 
-        my @tuples = Magpie::Util::make_tuples(@old_input);
+            my $args = {};
+            if ( ref( $input[$i + 1 ]) eq 'HASH' ) {
+                $args = $input[$i + 1 ];
+            }
 
-        foreach my $pair (@tuples) {
-            if (defined $pair->[1]->{traits}) {
-                if (ref $pair->[1]->{traits} eq 'ARRAY') {
-                    push @{$pair->[1]->{traits}}, '+Magpie::Plugin::URITemplate';
+            if (defined $args->{traits}) {
+                if (ref $args->{traits} eq 'ARRAY') {
+                    push @{$args->{traits}}, '+Magpie::Plugin::URITemplate';
                 }
                 else {
-                    my $existing = delete $pair->[1]->{traits};
-                    $pair->[1]->{traits} = [$existing, '+Magpie::Plugin::URITemplate'];
+                    my $existing = delete $args->{traits};
+                    $args->{traits} = [$existing, '+Magpie::Plugin::URITemplate'];
                 }
             }
             else {
-                $pair->[1]->{traits} = ['+Magpie::Plugin::URITemplate'];
+                $args->{traits} = ['+Magpie::Plugin::URITemplate'];
             }
-            $pair->[1]->{uri_template} = $uri_template;
-            push @{$input}, @{$pair};
-        }    
+
+            $args->{uri_template} = $uri_template;
+            push @parameterized, ($input[$i], $args);
+        }
+        @input = @parameterized;
     }
 
-    return ($match_type, $to_match, $input);
+    my $match_token = make_match_token;
+    $self->push_stack( [$match_type, $to_match, \@input, make_token, $match_token] );
+    return $match_token;
 }
 
 sub process_add {
@@ -251,12 +264,10 @@ sub process_assets {
     my $self = shift;
     my $node = shift;
     foreach my $container ($node->findnodes('./container')) {
-        #warn "Container";
         $self->process_asset_container($container);
     }
 
     foreach my $service ($node->findnodes('./service')) {
-        #warn "Service";
         $self->process_asset_service($service);
     }
 
@@ -410,7 +421,7 @@ Magpie::ConfigReader::XML - Magpie Configuration via XML
 
 =head1 VERSION
 
-version 1.140280
+version 1.141170
 
 =head1 AUTHORS
 

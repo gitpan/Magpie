@@ -1,9 +1,6 @@
 package Magpie::Transformer::XSLT;
-{
-  $Magpie::Transformer::XSLT::VERSION = '1.140280';
-}
 # ABSTRACT: XSLT Pipeline Transformer
-
+$Magpie::Transformer::XSLT::VERSION = '1.141170';
 use Moose;
 extends 'Magpie::Transformer';
 use Magpie::Constants;
@@ -91,10 +88,11 @@ sub absolute_path {
 
 our $WTF = 0;
 
+use Data::Printer;
+
 sub get_content {
     my $self = shift;
     my $ctxt = shift;
-
     my $dom = undef;
 
     my $xml_parser = XML::LibXML->new( expand_xinclude => 1, huge => 1, debug => 1, recover => 1, no_xinclude_nodes => 1, no_basefix => 1 );
@@ -149,6 +147,7 @@ sub get_content {
     $xml_parser->input_callbacks($icb);
 
     my $upstream = $resource->data;
+    #warn "upstream " . p($upstream);
     if ($upstream) {
         if (ref $upstream) {
             if (blessed($upstream)) {
@@ -178,9 +177,10 @@ sub get_content {
         }
     }
     else {
-        warn "Nothing UPSTREAM\n";
         $dom = XML::LibXML::Document->new();
     }
+
+    return DECLINED if $self->has_error;
 
     $self->content_dom( $dom );
     $WTF++;
@@ -284,7 +284,7 @@ Magpie::Transformer::XSLT - XSLT Pipeline Transformer
 
 =head1 VERSION
 
-version 1.140280
+version 1.141170
 
 =head1 AUTHORS
 

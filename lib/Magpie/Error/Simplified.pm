@@ -1,7 +1,5 @@
 package Magpie::Error::Simplified;
-{
-  $Magpie::Error::Simplified::VERSION = '1.140280';
-}
+$Magpie::Error::Simplified::VERSION = '1.141170';
 use Moose::Role;
 
 # A simple role to work around HTTP::Throwable's over-helpfulness
@@ -27,7 +25,7 @@ Magpie::Error::Simplified
 
 =head1 VERSION
 
-version 1.140280
+version 1.141170
 
 =head1 AUTHORS
 

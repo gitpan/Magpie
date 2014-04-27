@@ -1,7 +1,5 @@
 package Magpie;
-{
-  $Magpie::VERSION = '1.140280';
-}
+$Magpie::VERSION = '1.141170';
 use Moose;
 
 # ABSTRACT: Pipelined State Machine Plack Middleware Framework
@@ -17,7 +15,7 @@ Magpie - Pipelined State Machine Plack Middleware Framework
 
 =head1 VERSION
 
-version 1.140280
+version 1.141170
 
 =head1 SYNOPSIS
 
