@@ -41,7 +41,7 @@ my %WriteMakefileArgs = (
     "Test::Requires" => 0,
     "Test::Simple" => "0.98"
   },
-  "VERSION" => "1.141170",
+  "VERSION" => "1.141360",
   "test" => {
     "TESTS" => "t/*.t t/config/*.t t/core/*.t t/plugins/*.t t/resources/*.t t/transformers/*.t"
   }

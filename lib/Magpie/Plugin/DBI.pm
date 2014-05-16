@@ -1,5 +1,5 @@
 package Magpie::Plugin::DBI;
-$Magpie::Plugin::DBI::VERSION = '1.141170';
+$Magpie::Plugin::DBI::VERSION = '1.141360';
 use Moose::Role;
 
 # ABSTRACT: A simple Role for dealing with DBI-backed assets;
@@ -91,7 +91,7 @@ Magpie::Plugin::DBI - A simple Role for dealing with DBI-backed assets;
 
 =head1 VERSION
 
-version 1.141170
+version 1.141360
 
 =head1 AUTHORS
 

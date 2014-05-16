@@ -1,5 +1,5 @@
 package Magpie::Transformer::ServiceUnavailable;
-$Magpie::Transformer::ServiceUnavailable::VERSION = '1.141170';
+$Magpie::Transformer::ServiceUnavailable::VERSION = '1.141360';
 use Moose;
 
 # ABSTRACT: Use Plack Middleware Handlers As Pipeline Components
@@ -48,7 +48,7 @@ Magpie::Transformer::ServiceUnavailable - Use Plack Middleware Handlers As Pipel
 
 =head1 VERSION
 
-version 1.141170
+version 1.141360
 
 =head1 AUTHORS
 

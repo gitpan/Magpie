@@ -1,5 +1,5 @@
 package Magpie::Manual::Config;
-$Magpie::Manual::Config::VERSION = '1.141170';
+$Magpie::Manual::Config::VERSION = '1.141360';
 # ABSTRACT Configuring your Magpie applications
 
 
@@ -13,7 +13,7 @@ Magpie::Manual::Config
 
 =head1 VERSION
 
-version 1.141170
+version 1.141360
 
 =head1 Perl DSL
 

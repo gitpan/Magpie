@@ -1,5 +1,5 @@
 package Magpie::Plugin::URITemplate;
-$Magpie::Plugin::URITemplate::VERSION = '1.141170';
+$Magpie::Plugin::URITemplate::VERSION = '1.141360';
 use Moose::Role;
 #
 # ABSTRACT: A Role to add URI Template-like path variable capture;
@@ -111,7 +111,7 @@ Magpie::Plugin::URITemplate - A Role to add URI Template-like path variable capt
 
 =head1 VERSION
 
-version 1.141170
+version 1.141360
 
 =head1 AUTHORS
 

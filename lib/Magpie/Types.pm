@@ -1,5 +1,5 @@
 package Magpie::Types;
-$Magpie::Types::VERSION = '1.141170';
+$Magpie::Types::VERSION = '1.141360';
 # ABSTRACT: Common Magpie Type Constraints
 use Moose::Role;
 #use HTTP::Throwable::Factory;
@@ -88,7 +88,7 @@ Magpie::Types - Common Magpie Type Constraints
 
 =head1 VERSION
 
-version 1.141170
+version 1.141360
 
 =head1 AUTHORS
 

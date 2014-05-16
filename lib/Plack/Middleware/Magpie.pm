@@ -1,5 +1,5 @@
 package Plack::Middleware::Magpie;
-$Plack::Middleware::Magpie::VERSION = '1.141170';
+$Plack::Middleware::Magpie::VERSION = '1.141360';
 # ABSTRACT: Plack Middleware Interface For Pipelined Magpie Applications
 use strict;
 use warnings;
@@ -227,7 +227,7 @@ sub call {
     elsif ( !grep { blessed($_) && $_->isa('Magpie::Resource') } @{$pipeline} ) {
 
         # If there is no Resource and nothing in the Pipeline then, really,
-        # we haven't found any way to prcess the request. 404 is what most
+        # we haven't found any way to prcoess the request. 404 is what most
         # people would expect, I think.
         unless ( scalar @{$pipeline} ) {
             my $err = HTTP::Throwable::Factory->new_exception('NotFound');
@@ -294,7 +294,7 @@ Plack::Middleware::Magpie - Plack Middleware Interface For Pipelined Magpie Appl
 
 =head1 VERSION
 
-version 1.141170
+version 1.141360
 
 =head1 AUTHORS
 

@@ -1,6 +1,6 @@
 package Magpie::ConfigReader::XML;
 #ABSTRACT: Magpie Configuration via XML
-$Magpie::ConfigReader::XML::VERSION = '1.141170';
+$Magpie::ConfigReader::XML::VERSION = '1.141360';
 use Moose;
 use XML::LibXML;
 use Magpie::Util;
@@ -421,7 +421,7 @@ Magpie::ConfigReader::XML - Magpie Configuration via XML
 
 =head1 VERSION
 
-version 1.141170
+version 1.141360
 
 =head1 AUTHORS
 

@@ -1,6 +1,6 @@
 package Magpie::Transformer::Middleware;
 # ABSTRACT: Use Plack Middleware Handlers As Pipeline Components
-$Magpie::Transformer::Middleware::VERSION = '1.141170';
+$Magpie::Transformer::Middleware::VERSION = '1.141360';
 use Moose;
 extends 'Magpie::Transformer';
 use Magpie::Constants;
@@ -53,7 +53,7 @@ Magpie::Transformer::Middleware - Use Plack Middleware Handlers As Pipeline Comp
 
 =head1 VERSION
 
-version 1.141170
+version 1.141360
 
 =head1 AUTHORS
 

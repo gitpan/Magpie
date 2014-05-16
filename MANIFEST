@@ -38,6 +38,7 @@ lib/Magpie/Resource/DBIC.pm
 lib/Magpie/Resource/DBIxClass.pm
 lib/Magpie/Resource/File.pm
 lib/Magpie/Resource/Kioku.pm
+lib/Magpie/Resource/Proxy.pm
 lib/Magpie/SymbolTable.pm
 lib/Magpie/Transformer.pm
 lib/Magpie/Transformer/JSON.pm

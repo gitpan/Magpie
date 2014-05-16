@@ -1,5 +1,5 @@
 package Magpie::Util;
-$Magpie::Util::VERSION = '1.141170';
+$Magpie::Util::VERSION = '1.141360';
 # ABSTRACT: Common utility functions
 
 #-------------------------------------------------------------------------------
@@ -31,7 +31,7 @@ Magpie::Util - Common utility functions
 
 =head1 VERSION
 
-version 1.141170
+version 1.141360
 
 =head1 AUTHORS
 
