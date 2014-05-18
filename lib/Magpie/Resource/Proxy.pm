@@ -1,6 +1,6 @@
 package Magpie::Resource::Proxy;
 # ABSTRACT: .
-$Magpie::Resource::Proxy::VERSION = '1.141360';
+$Magpie::Resource::Proxy::VERSION = '1.141380';
 use Moose;
 extends 'Magpie::Resource';
 use Magpie::Constants;
@@ -102,7 +102,7 @@ Magpie::Resource::Proxy - .
 
 =head1 VERSION
 
-version 1.141360
+version 1.141380
 
 # SEALSO: Magpie, Magpie::Resource
 

@@ -1,5 +1,5 @@
 package Magpie::Intro;
-$Magpie::Intro::VERSION = '1.141360';
+$Magpie::Intro::VERSION = '1.141380';
 # ABSTRACT: Introduction to the whys and wherefores of Magpie
 
 
@@ -12,7 +12,7 @@ Magpie::Intro - Introduction to the whys and wherefores of Magpie
 
 =head1 VERSION
 
-version 1.141360
+version 1.141380
 
 =head1 Introduction to Magpie
 

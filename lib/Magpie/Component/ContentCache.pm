@@ -1,6 +1,6 @@
 package Magpie::Component::ContentCache;
 # ABSTRACT: Internally added content cache component
-$Magpie::Component::ContentCache::VERSION = '1.141360';
+$Magpie::Component::ContentCache::VERSION = '1.141380';
 use Moose;
 extends 'Magpie::Transformer';
 use Magpie::Constants;
@@ -45,7 +45,7 @@ Magpie::Component::ContentCache - Internally added content cache component
 
 =head1 VERSION
 
-version 1.141360
+version 1.141380
 
 =head1 AUTHORS
 
