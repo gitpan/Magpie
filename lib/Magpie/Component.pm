@@ -1,5 +1,5 @@
 package Magpie::Component;
-$Magpie::Component::VERSION = '1.141380';
+$Magpie::Component::VERSION = '1.141660';
 # ABSTRACT: Base Class For All Magpie Pipeline Components
 use Moose;
 use Magpie::Constants;
@@ -69,7 +69,7 @@ Magpie::Component - Base Class For All Magpie Pipeline Components
 
 =head1 VERSION
 
-version 1.141380
+version 1.141660
 
 =head1 AUTHORS
 

@@ -1,5 +1,5 @@
 package Magpie::Dispatcher::RequestParam;
-$Magpie::Dispatcher::RequestParam::VERSION = '1.141380';
+$Magpie::Dispatcher::RequestParam::VERSION = '1.141660';
 use MooseX::Role::Parameterized;
 
 # ABSTRACT: Request Parameter Dispatcher
@@ -51,7 +51,7 @@ Magpie::Dispatcher::RequestParam - Request Parameter Dispatcher
 
 =head1 VERSION
 
-version 1.141380
+version 1.141660
 
 =head1 AUTHORS
 

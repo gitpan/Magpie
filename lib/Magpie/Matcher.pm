@@ -1,6 +1,6 @@
 package Magpie::Matcher;
 #ABSTRACT: Multi-purpose Dispatcher Magic
-$Magpie::Matcher::VERSION = '1.141380';
+$Magpie::Matcher::VERSION = '1.141660';
 use Moose;
 use Scalar::Util qw(reftype);
 use HTTP::Negotiate;
@@ -248,7 +248,7 @@ Magpie::Matcher - Multi-purpose Dispatcher Magic
 
 =head1 VERSION
 
-version 1.141380
+version 1.141660
 
 =head1 AUTHORS
 

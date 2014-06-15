@@ -1,6 +1,6 @@
 package Magpie::Resource::File;
 # ABSTRACT: INCOMPLETE - Basic file Resource implementation.
-$Magpie::Resource::File::VERSION = '1.141380';
+$Magpie::Resource::File::VERSION = '1.141660';
 use Moose;
 extends 'Magpie::Resource';
 use Magpie::Constants;
@@ -69,7 +69,7 @@ Magpie::Resource::File - INCOMPLETE - Basic file Resource implementation.
 
 =head1 VERSION
 
-version 1.141380
+version 1.141660
 
 # SEALSO: Magpie, Magpie::Resource
 

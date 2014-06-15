@@ -35,7 +35,6 @@ lib/Magpie/Plugin/URITemplate.pm
 lib/Magpie/Resource.pm
 lib/Magpie/Resource/Abstract.pm
 lib/Magpie/Resource/DBIC.pm
-lib/Magpie/Resource/DBIxClass.pm
 lib/Magpie/Resource/File.pm
 lib/Magpie/Resource/Kioku.pm
 lib/Magpie/Resource/Proxy.pm

@@ -1,5 +1,5 @@
 package Magpie::Resource::Kioku;
-$Magpie::Resource::Kioku::VERSION = '1.141380';
+$Magpie::Resource::Kioku::VERSION = '1.141660';
 # ABSTRACT: INCOMPLETE - Resource implementation for KiokuDB datastores.
 
 use Moose;
@@ -130,7 +130,11 @@ sub GET {
         ($data) = $self->data_source->lookup($id);
     }
     catch {
-        my $error = "Could not GET data from Kioku data source: $_\n";
+        my $trace = $_;
+        if (ref($trace)) {
+            $trace = $trace->as_string;
+        }
+        my $error = "Could not GET data from Kioku data source: $trace\n";
         $self->set_error( { status_code => 500, reason => $error } );
     };
 
@@ -362,7 +366,7 @@ sub PUT {
 
 
 package MagpieGenericWrapper;
-$MagpieGenericWrapper::VERSION = '1.141380';
+$MagpieGenericWrapper::VERSION = '1.141660';
 sub new {
     my $proto = shift;
     my %args  = @_;
@@ -381,7 +385,7 @@ Magpie::Resource::Kioku - INCOMPLETE - Resource implementation for KiokuDB datas
 
 =head1 VERSION
 
-version 1.141380
+version 1.141660
 
 # SEEALSO: Magpie, Magpie::Resource
 

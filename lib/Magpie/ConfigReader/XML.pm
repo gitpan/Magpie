@@ -1,6 +1,6 @@
 package Magpie::ConfigReader::XML;
 #ABSTRACT: Magpie Configuration via XML
-$Magpie::ConfigReader::XML::VERSION = '1.141380';
+$Magpie::ConfigReader::XML::VERSION = '1.141660';
 use Moose;
 use XML::LibXML;
 use Magpie::Util;
@@ -97,7 +97,7 @@ sub process_match {
 
     foreach my $child ($node->childNodes) {
         my $name = $child->localname;
-        next unless length $name;
+        next unless $name && length $name;
         if ($name eq 'add') {
             push @input, process_add($child);
         }
@@ -421,7 +421,7 @@ Magpie::ConfigReader::XML - Magpie Configuration via XML
 
 =head1 VERSION
 
-version 1.141380
+version 1.141660
 
 =head1 AUTHORS
 
